@@ -1,0 +1,1 @@
+// Setting view engine to EJS (Embedded JavaScript)

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    /* CSS styles for the body */
+    body {
+      background-color: #f8f9fa;
+      background-image: url('https://wallpapercave.com/wp/1aqYrSf.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  
+    /* CSS styles for the container */
+    .container {
+      margin-top: 50px;
+      animation: slideInRight 1.5s ease-in-out;
+    }
+  
+    /* Keyframe animation for sliding in from the right */
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    } 
+   
+    /* CSS styles for the cards */
+    .card {
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.2s ease-in-out;
+      background: linear-gradient(45deg, #3498db, #2ecc71);
+      opacity: 1;
+      filter: brightness(5px);
+    }
+
+    /* CSS styles for card hover effect */
+    .card:hover {
+      transform: scale(1.03);
+    }
+  
+    /* CSS styles for card title */
+    .card-title {
+      color: #007bff;
+      font-size: 1.5rem;
+    }
+  
+    /* CSS styles for card subtitle */
+    .card-subtitle {
+      color: #6c757d;
+    }
+  
+    /* CSS styles for card text */
+    .card-text {
+      color: #343a40;
+      height: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  
+    /* CSS styles for buttons */
+    .btn {
+      margin-top: 10px;
+      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+  
+    /* CSS styles for button hover effect */
+    .btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+  
+  <!-- Title for the page -->
+  <title>blog</title>
+</head>
+<body>
+  <!-- Main container -->
+  <div class="container">
+    <!-- Heading for the blog -->
+    <h1 class="mb-4">Explore Our Blog</h1>
+    <!-- Link to create a new article -->
+    <a href="/articles/new" class="btn btn-success">Create New Article</a>
+
+    <!-- Section to display articles -->
+    <div class="row mt-4">
+      <!-- Loop through each article and display -->
+      <% articles.forEach(article => { %>
+        <div class="col-md-6 mb-4">
+          <!-- Card for displaying article details -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Title of the article -->
+              <h4 class="card-title"><%= article.title %></h4>
+              <!-- Subtitle with the creation date of the article -->
+              <div class="card-subtitle text-muted mb-2">
+                <%= article.createdAt.toLocaleDateString() %>
+              </div>
+              <!-- Description of the article -->
+              <div class="card-text"><%= article.description %></div>
+              <!-- Link to read more of the article -->
+              <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+              <!-- Link to edit the article -->
+              <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+              <!-- Form to delete the article -->
+              <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>

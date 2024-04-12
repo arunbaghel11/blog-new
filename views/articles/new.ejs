@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    body {
+      background-image: url('https://wallpapercave.com/wp/1aqYrSf.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #343a40;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for visibility */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+
+
+    h1 {
+      color: #007bff;
+    }
+
+    /* Add animation to the form */
+    form {
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <title>Blog</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mb-4">New Article</h1>
+
+    <form action="/articles" method="POST">
+      <%- include('_form_fields') %>
+    </form>
+  </div>
+</body>
+</html>
