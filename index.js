@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000; // Defaulting to port 5000 if no port is 
 
 // Connecting to MongoDB database
 // Connecting to MongoDB database
-mongoose.connect('mongodb+srv://arunbaghe192004:CQ7ZLd0wrmvBLRFi@blog.k7w5gxn.mongodb.net/', {
+mongoose.connect('mongodb+srv://arunbaghe192004:QqTM1ogh0x4j6sNR@cluster0.tmyydom.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
