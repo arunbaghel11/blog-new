@@ -4,6 +4,7 @@ const mongoose = require('mongoose'); // Importing Mongoose library for MongoDB 
 const Article = require('./models/article'); // Importing Article model
 const articleRouter = require('./routes/articles'); // Importing article router
 const methodOverride = require('method-override'); // Importing method-override middleware for HTTP method overriding
+const cors=require('cors');
 
 // Creating Express application instance
 const app = express();
@@ -17,6 +18,12 @@ mongoose.connect('mongodb+srv://arunbaghe192004:QqTM1ogh0x4j6sNR@cluster0.tmyydo
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
+app.use(cors({
+    origin:["https://deploy-mern-1whq.vercel.app"]
+        method:["POST" ,"GET"],
+    credentials:true
+}
+  ));           
 
 
 // Setting view engine to EJS (Embedded JavaScript)
